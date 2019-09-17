@@ -1,0 +1,32 @@
+<div>
+    <div ng-if="loaded" class="col-sm-4 col-sm-offset-2">
+        <!-- <abn-tree tree-data="tree_data" tree-control="tree_control" expand-level="2"></abn-tree>
+        </abn-tree> -->
+        <div ui-tree>
+            <ol ui-tree-nodes="" ng-model="tree_data">
+                <li ng-repeat="db in tree_data" ui-tree-node>
+                    <div>
+                        <label ng-if="db.data.state == 'deleted'" style="background-color:#e83e8c">{{db.label}} <span
+                                class="badge">Delete</span></label>
+                        <label ng-if="db.data.state =='new'" style="background-color:#28a745">{{db.label}} <span
+                                class="badge">New</span></label>
+                        <!-- <label ng-if="db.data.state =='modified'" style="background-color:#ffc107">{{db.label}} <span
+                                class="badge">Modified</span></label></label> -->
+                        <label ng-if="db.data.state ==''">{{db.label}} </label>
+                    </div>
+                    <ol ui-tree-nodes="" ng-model="db.children">
+                        <li ng-repeat="collection in db.children" ui-tree-node>
+                            <div>
+                                <label ng-if="collection.data.state == 'deleted'" style="background-color:#e83e8c">
+                                    {{collection.label}} <span class="badge">Delete</span></label>
+                                <label ng-if="collection.data.state =='new'" style="background-color:#28a745">
+                                    {{collection.label}} <span class="badge">New</span></label>
+                                <label ng-if="collection.data.state ==''">{{collection.label}}</p>
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

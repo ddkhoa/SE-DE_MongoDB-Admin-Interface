@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Database Management</title>
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/abn_tree.css">
+    <link rel="stylesheet" href="css/angular-ui-tree.min.css"> -->
+    <link rel="stylesheet" href="css/angular-block-ui.min.css">
+</head>
+
+<body ng-app="app">
+    <div class="container" ng-controller="AppCtrl">
+        <div ui-view></div>
+    </div>
+
+    <!-- LIBS -->
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-ui-router.min.js"></script>
+    <script src="libs/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <!-- <script src="libs/abn_tree_directive.js"></script>
+    <script src="libs/angular-ui-tree.min.js"></script> -->
+    <script src="libs/angular-block-ui.min.js"></script>
+
+    <!-- Angular Material dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+    <!-- APP -->
+    <script src="app.js"></script>
+    <script src="config.router.js"></script>
+    <script src="main.js"></script>
+
+    <!-- CONTROLLER -->
+    <script src="component/connection/connectionCtrl.js"></script>
+    <script src="component/dbserver/dbserverCtrl.js"></script>
+    <script src="component/db/dbCtrl.js"></script>
+    <script src="component/dbserver/compareCtrl.js"></script>
+
+</body>
+
+</html>

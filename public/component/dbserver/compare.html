@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3> Compare databases</h3>
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <span class="h4">Choose server</span>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Source</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" readonly ng-model="connection.name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Destination</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" ng-model="dbdes"
+                                    ng-options="value as key for (key, value) in connSet">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success" ng-click="compare()">Compare</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default" ng-if="loaded">
+
+            <div class="panel-heading">
+                <span class="h4">Result</span>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>
+                                {{connection.name}}
+                            </th>
+                            <th>
+                                {{dbdes.name}}
+                            </th>
+                        </tr>
+                        <tr ng-repeat="row in obj.src_data">
+                            <td ng-repeat="col in row" ng-style="col.style">
+                                {{col.label}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

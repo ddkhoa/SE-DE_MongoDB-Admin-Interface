@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3> Server {{connection.name}}</h3>
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h4 style="font-weight: bold;">List databases </h4>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Size (MB)</th>
+                    <th>Collections</th>
+                    <th>Action</th>
+                </tr>
+                <tr ng-repeat="db in databases">
+                    <td>{{db.name}}</td>
+                    <td>{{db.sizeOnDisk}}</td>
+                    <td>{{db.nbCollection}}</td>
+                    <td><button type="button" class="btn btn-success" ng-click=viewDb(db.name)>View</button></td>
+                </tr>
+            </table>
+            <button type="button" class="btn btn-success" ng-click=compareDb()>Compare structure</button>
+            <button type="button" class="btn btn-success" ng-click=getDescriptionFile()>Get description file</button>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 style="font-weight: bold;">Server Status</h4>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td class="span2">
+                        <strong>Hostname</strong>
+                    </td>
+                    <td class="span3" id="dbHost">{{ stats.host }}</td>
+                    <td class="span2">
+                        <strong>MongoDB Version</strong>
+                    </td>
+                    <td class="span3" id="dbVersion">{{ stats.version }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Uptime</strong>
+                    </td>
+                    <td>{{ stats.uptime }}
+                    </td>
+                    <td>
+                        <strong>Server Time</strong>
+                    </td>
+                    <td>{{ stats.serverTime }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Current Connections</strong>
+                    </td>
+                    <td>{{ stats.currentConnections }}</td>
+                    <td>
+                        <strong>Available Connections</strong>
+                    </td>
+                    <td>{{ stats.availableConnections }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Active Clients</strong>
+                    </td>
+                    <td>{{ stats.activeClients }}</td>
+                    <td>
+                        <strong>Queued Operations</strong>
+                    </td>
+                    <td>{{ stats.queueOperations }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Clients Reading</strong>
+                    </td>
+                    <td>{{ stats.clientReading}}</td>
+                    <td>
+                        <strong>Clients Writing</strong>
+                    </td>
+                    <td>{{ stats.clientWriting}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Read Lock Queue</strong>
+                    </td>
+                    <td>{{ stats.readLockQueue }}</td>
+                    <td>
+                        <strong>Write Lock Queue</strong>
+                    </td>
+                    <td>{{ stats.writeLockQueue}}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total Inserts</strong>
+                    </td>
+                    <td>{{ stats.totalInserts }}</td>
+                    <td>
+                        <strong>Total Queries</strong>
+                    </td>
+                    <td>{{ stats.totalQueries}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total Updates</strong>
+                    </td>
+                    <td>{{ stats.totalUpdates}}</td>
+                    <td>
+                        <strong>Total Deletes</strong>
+                    </td>
+                    <td>{{ stats.totalDeletes}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

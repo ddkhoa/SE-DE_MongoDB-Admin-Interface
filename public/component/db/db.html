@@ -1,0 +1,80 @@
+<!-- STATS -->
+<div class="panel panel-default stats">
+    <div class="panel-heading">
+        <h4 style="font-weight: bold;">Database {{stats.dbname}} Stats</h4>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td><strong>Collections (incl. system.namespaces)</strong></td>
+            <td>{{ stats.collections }}</td>
+        </tr>
+        <tr>
+            <td><strong>Data Size</strong></td>
+            <td>{{ stats.dataSize }}</td>
+        </tr>
+        <tr>
+            <td><strong>Storage Size</strong></td>
+            <td>{{ stats.storageSize }}</td>
+        </tr>
+        <tr ng-if="stats.fileSize">
+            <td><strong>File Size (on disk)</strong></td>
+            <td>{{ stats.fileSize }}</td>
+        </tr>
+        <tr ng-if="stats.avgObjSize">
+            <td><strong>Avg Obj Size #</strong></td>
+            <td>{{ stats.avgObjSize }}</td>
+        </tr>
+        <tr ng-if="stats.objects">
+            <td><strong>Objects #</strong></td>
+            <td>{{ stats.objects }}</td>
+        </tr>
+        <tr ng-if="stats.numExtents">
+            <td><strong>Extents #</strong></td>
+            <td>{{ stats.numExtents }}</td>
+        </tr>
+        <tr ng-if="stats.extentFreeListNum">
+            <td><strong>Extents Free List</strong></td>
+            <td>{{ stats.extentFreeListNum }}</td>
+        </tr>
+        <tr ng-if="stats.indexes">
+            <td><strong>Indexes #</strong></td>
+            <td>{{ stats.indexes }}</td>
+        </tr>
+        <tr ng-if="stats.indexSize">
+            <td><strong>Index Size</strong></td>
+            <td>{{ stats.indexSize }}</td>
+        </tr>
+        <tr ng-if="stats.dataFileVersion">
+            <td><strong>Data File Version</strong></td>
+            <td>{{ stats.dataFileVersion }}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- COLLECTION -->
+<div class="panel panel-default stats" ng-repeat="collection in collections">
+
+    <div class="panel-heading">
+        <h4 style="font-weight: bold;">Collection {{collection.name}} </h4>
+    </div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Business rule</th>
+        </tr>
+        <tr ng-repeat="column in collection.schema">
+            <td>{{column.attribute}}</td>
+            <td>
+                <div ng-repeat="(key,value) in column.types">
+                    Type : {{key}}. Number : {{value}}
+                </div>
+            </td>
+            <td><input class="form-control" type="text" ng-model="column.description" ng-blur="saveInfo()"></td>
+            <td><input class="form-control" type="text" ng-model="column.business_rule" ng-blur="saveInfo()"></td>
+        </tr>
+    </table>
+
+</div>
